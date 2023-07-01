@@ -42,3 +42,30 @@ print(f"Last column: {tensor[..., -1]}")
 
 tensor[:,1] = 3
 print(tensor)
+
+y1 = tensor @ tensor.T
+print(y1)
+y2 = tensor.matmul(tensor.T)
+y3 = torch.rand_like(y1)
+torch.matmul(tensor, tensor.T, out = y3)
+
+z1 = tensor*tensor
+z2 = tensor.mul(tensor)
+z3 = torch.rand_like(y1)
+torch.mul(tensor, tensor, out = z3)
+print(z3)
+
+tensor.add_(4)
+print(tensor)
+
+t = torch.ones(5)
+print(t)
+n = t.numpy()
+print(n)
+t.add_(2)
+print(n)
+
+n0 = np.ones(3)
+t0 = torch.from_numpy(n0)
+np.add(n0, 1, out = n0)
+print(t0)
